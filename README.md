@@ -30,24 +30,25 @@ A simple and efficient Python tool to extract all embedded images from a PDF fil
 
 3. **Install dependencies**:
    ```bash
-   pip install PyMuPDF
+   pip install -r requirements.txt
    ```
 
 ## Usage
 
-1. Open `main.py` and modify the `pdf_file` variable at the bottom of the script to point to your target PDF.
-   ```python
-   if __name__ == "__main__":
-       pdf_file = "path/to/your/document.pdf"
-       ...
-   ```
+Run the script from the command line, passing the path to your PDF file as an argument:
 
-2. Run the script:
-   ```bash
-   python main.py
-   ```
+```bash
+python main.py path/to/your/document.pdf
+```
 
-3. Find your extracted images in the `output/` directory!
+**Optional Arguments:**
+- `-o` or `--output`: Specify a custom output base directory (default is `output`).
+  
+```bash
+python main.py path/to/your/document.pdf -o custom_output_dir
+```
+
+Find your extracted images in the `output/` directory!
 
 ## Example
 If you run the script on a file named `RAG.pdf`, the images will be exported to:

@@ -1,5 +1,6 @@
 import fitz  # PyMuPDF
 import os
+import argparse
 
 def extract_images_from_pdf(pdf_path, output_base_dir="output"):
     # Get the name of the pdf without extension
@@ -48,13 +49,14 @@ def extract_images_from_pdf(pdf_path, output_base_dir="output"):
     print(f"\nExtraction complete! Extracted {extracted_count} images to {output_dir}")
 
 if __name__ == "__main__":
-    # Example usage:
-    # Change the pdf_path to the path of your PDF file
-    pdf_file = "pdfs/RAG.pdf"
+    parser = argparse.ArgumentParser(description="Extract all images from a PDF file.")
+    parser.add_argument("pdf_path", help="Path to the input PDF file.")
+    parser.add_argument("-o", "--output", default="output", help="Base directory to save extracted images (default: 'output').")
     
-    if os.path.exists(pdf_file):
-        print(f"Processing: {pdf_file}")
-        extract_images_from_pdf(pdf_file)
+    args = parser.parse_args()
+    
+    if os.path.exists(args.pdf_path):
+        print(f"Processing: {args.pdf_path}")
+        extract_images_from_pdf(args.pdf_path, args.output)
     else:
-        print(f"PDF file not found: {pdf_file}")
-        print("Please provide a valid path to a PDF file.")
+        print(f"Error: PDF file not found at '{args.pdf_path}'")
