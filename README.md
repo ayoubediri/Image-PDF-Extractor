@@ -35,10 +35,14 @@ A simple and efficient Python tool to extract all embedded images from a PDF fil
 
 ## Usage
 
-Run the script from the command line, passing the path to your PDF file as an argument:
+Run the script from the command line, passing the path to either a **single PDF file** or a **directory containing PDF files**:
 
 ```bash
+# Process a single file
 python main.py path/to/your/document.pdf
+
+# Process an entire folder
+python main.py path/to/your/folder_with_pdfs/
 ```
 
 **Optional Arguments:**
